@@ -1,11 +1,9 @@
 #!/usr/bin/python
 import time
-start = time.time()
 
 
 def create_list_with_append():
     fin = open('words.txt')
-    line = fin.readline()
     list_of_words = []
 
     for line in fin:
@@ -25,8 +23,13 @@ def create_list_with_idiom():
 
     return t
 
-
-print(create_list_with_append())
+start = time.time()
+create_list_with_append()
 end = time.time()
+print("The time of execution of above program is :", end - start)
 
+
+start = time.time()
+create_list_with_idiom()
+end = time.time()
 print("The time of execution of above program is :", end - start)
