@@ -4,7 +4,7 @@ def has_duplicates(t):
     '''
     Returns True if list has a duplicates
     :param t: list
-    :return: bool if there are duplicates or dict without duplicates
+    :return: bool
     '''
     d = dict()
     for i in t:
@@ -12,7 +12,10 @@ def has_duplicates(t):
             d[i] = 1
         else:
             return True
-    return d
+    return False
 
 if __name__ == '__main__':
-    print(has_duplicates(['a', 'b', 'c', 'a']))
+    t = [1, 2, 3]
+    print(has_duplicates(t))
+    t.append(1)
+    print(has_duplicates(t))
