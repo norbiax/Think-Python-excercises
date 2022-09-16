@@ -3,6 +3,11 @@ from operator import itemgetter
 
 
 def most_frequent1(sentence):
+    '''
+    Retrieves a string and displays the letters with a percentage, in order of the most common
+    :param sentence: string - part of text
+    :return: list
+    '''
     alphabet = string.ascii_lowercase
     lst = []
     sentence_lower = sentence.replace(' ', '').lower()
