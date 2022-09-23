@@ -2,7 +2,7 @@ import string
 from operator import itemgetter
 
 
-def most_frequent1(sentence):
+def most_frequent(sentence):
     '''
     Retrieves a string and returns tuples with letters and their number in the sentence
     :param sentence: string - part of text
@@ -24,10 +24,10 @@ def most_frequent1(sentence):
 
 def words_dict(file):
     '''
-    ......
-    :param file:
-    :param sentence:
-    :return:
+    Opens a text file and creates a dictionary with words as keys
+    and a list of tuples with letters and their number of occurrences in that word as values
+    :param file: txt file
+    :return: dictonary
     '''
     fin = open(file)
     list_of_words = []
@@ -35,14 +35,19 @@ def words_dict(file):
     for line in fin:
         word = line.strip()
         list_of_words.append(word)
-    # print(list_of_words)
     for word in list_of_words:
-        words_collection[word] = most_frequent1(word)
+        words_collection[word] = most_frequent(word)
 
     return words_collection
 
 
 def find_keys_by_values(dic, val_to_find):
+    """
+    Finding keys with the same value.
+    :param dic: dictonary
+    :param val_to_find: expected value
+    :return: list of keys
+    """
     keys_lst = []
     for key, value in dic.items():
         if value == val_to_find:
@@ -51,10 +56,14 @@ def find_keys_by_values(dic, val_to_find):
 
 
 def anagrams_sets(collection):
+    '''
+    Creates a list of anagrams
+    :param collection: dictionary with words as keys and a list of tuples as values
+    :return: anagrams lists
+    '''
     sets = []
     for key, value in collection.items():
         anagrams = find_keys_by_values(collection, value)
-        # print(anagrams)
         if len(anagrams) > 1 and anagrams not in sets:
             sets.append(anagrams)
     for anagrams in sets:
