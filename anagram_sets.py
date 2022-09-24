@@ -66,9 +66,11 @@ def anagrams_sets(collection):
         anagrams = find_keys_by_values(collection, value)
         if len(anagrams) > 1 and anagrams not in sets:
             sets.append(anagrams)
+    sets.sort(key=len, reverse=True)
     for anagrams in sets:
         print(anagrams)
+    return sets
 
 
 if __name__ == '__main__':
-    anagrams_sets(words_dict('words.txt'))
+    anagrams_sets(words_dict('words_short.txt'))
