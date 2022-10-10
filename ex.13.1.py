@@ -17,11 +17,19 @@ def sentence_modification(file):
         for char in all_to_delete:
             if char in all_to_delete:
                 line = line.replace(char, '')
-        words_lst.append(line)
+        words = line.split(' ')
+        to_remove = ['']
+        for word in list(words):
+            if word in to_remove:
+                words.remove(word)
 
+        for elem in words:
+            words_lst.append(elem)
+
+
+    print(words_lst)
     print(' '.join(words_lst))
     return words_lst
-
 
 
 if __name__ == '__main__':
