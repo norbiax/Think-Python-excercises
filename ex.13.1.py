@@ -1,7 +1,15 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 import string
 
 
 def sentence_modification(file):
+    """
+    reads a file, breaks each line into words, removes whitespace and punctuation, and converts to lowercase
+    :param file: txt file
+    :return: string
+    """
     punct = list(string.punctuation)
     white = list(string.whitespace)
     for elem in punct:
@@ -26,8 +34,7 @@ def sentence_modification(file):
         for elem in words:
             words_lst.append(elem)
 
-
-    print(words_lst)
+    # print(words_lst)
     print(' '.join(words_lst))
     return words_lst
 
