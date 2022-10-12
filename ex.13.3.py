@@ -8,7 +8,7 @@ from operator import itemgetter
 def sentence_modification(file, first_line, last_line):
     """
     Reads a file, breaks each line within the given range into words, removes whitespace and punctuation, and converts
-    to lowercase. Creates a dictionary with the number of occurrences of the words.
+    to lowercase. Displays the 20 most commonly used words in the book.
     :param last_line: number
     :param first_line: number
     :param file: txt file
@@ -62,11 +62,19 @@ def sentence_modification(file, first_line, last_line):
 
     t = d.items()
     ss_lst = list(set(t))
-    ss_lst.sort(key=itemgetter(0), reverse=True)
+    ss_lst.sort(key=itemgetter(1), reverse=True)
 
-    print(ss_lst)
+    top_20 = []
+    for i in ss_lst:
+        count = 0
+        if len(top_20) < 20:
+            top_20.append(i)
+            print(i)
+            count += 1
 
-    return words_lst
+    # print(ss_lst)
+
+    return top_20
 
 
 if __name__ == '__main__':
